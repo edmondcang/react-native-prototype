@@ -6,36 +6,55 @@
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
   StyleSheet,
+  AppRegistry,
   Text,
+  StatusBar,
+  Navigator,
   View
 } from 'react-native';
+
+import { Container, Header, Title, Button, Icon } from 'native-base';
 
 export default class ReactNativePrototype1 extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          {'Welcome to React Native <3'}
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+      <Container>
+        <Header>
+          <Button transparent>
+            <Icon name="ios-arrow-back" />
+          </Button>
+
+          <Title>Header</Title>
+
+          <Button transparent>
+            <Icon name="ios-menu" />
+          </Button>
+        </Header>
+      </Container>
     );
   }
 }
+
+const titleConfig = {
+  title: 'foo'
+};
+
+const rightButtonConfig = {
+  title: 'Next',
+  handler: () => alert('hallo !'),
+};
 
 const stretchView = {
   alignSelf: 'stretch'
 };
 
 const styles = StyleSheet.create({
+  navbar: {
+    flex: 1,
+    borderColor: '#ccc',
+    ...stretchView,
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
